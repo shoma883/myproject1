@@ -12,7 +12,7 @@
                     @foreach ($items as $item)
                         <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
                             <p class="text-gray-800 dark:text-gray-300">
-                                <a href="{{ route('items.show', $item) }}" class="text-blue-500 hover:text-blue-700">
+                                <a href="{{ route('items.show',  ['item' => $item->id])}}" class="text-blue-500 hover:text-blue-700">
                                     アイテム名: {{ $item->name }}
                                 </a>
                             </p>

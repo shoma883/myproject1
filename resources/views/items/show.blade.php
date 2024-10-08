@@ -13,6 +13,15 @@
                     <p class="text-gray-800 dark:text-gray-300 text-lg">アイテム名: {{ $item->name }}</p>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">数量: {{ $item->quantity }}</p>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">説明: {{ $item->description }}</p> <!-- 説明を追加 -->
+                    <!-- 画像を表示 -->
+                    @if($item->image)
+                        <div class="mt-4">
+                            <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}の画像" class="rounded-lg shadow-lg">
+                        </div>
+                    @else
+                        <p class="text-gray-500">画像はアップロードされていません。</p>
+                    @endif
+
                     @if (auth()->id() == $item->user_id)
                     <div class="flex mt-4">
                         <a href="{{ route('items.edit', $item) }}" class="text-blue-500 hover:text-blue-700 mr-2">編集</a>
