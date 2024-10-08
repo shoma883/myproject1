@@ -10,7 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <a href="{{ route('items.index', $item) }}" class="text-blue-500 hover:text-blue-700 mr-2">一覧に戻る</a>
-                    <form method="POST" action="{{ route('items.update', $item) }}">
+                    <form method="POST" action="{{ route('items.update', $item) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="mb-4">
@@ -31,6 +31,14 @@
                             <label for="description" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">説明</label>
                             <textarea name="description" id="description" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{ $item->description }}</textarea>
                             @error('description')
+                                <span class="text-red-500 text-xs italic">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <!-- 画像アップロードフィールド -->
+                        <div class="mb-4">
+                            <label for="image" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">画像アップロード</label>
+                            <input type="file" name="image" id="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            @error('image')
                                 <span class="text-red-500 text-xs italic">{{ $message }}</span>
                             @enderror
                         </div>
