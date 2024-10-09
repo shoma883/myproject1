@@ -21,6 +21,21 @@
                             @enderror
                         </div>
                         <div class="mb-4">
+                            <label for="category" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">カテゴリー</label>
+                            <select name="category" id="category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <option value="Food" {{ $item->category == 'Food' ? 'selected' : '' }}>食べ物</option>
+                                <option value="Clothes" {{ $item->category == 'Clothes' ? 'selected' : '' }}>衣類</option>
+                                <option value="Household Items" {{ $item->category == 'Household Items' ? 'selected' : '' }}>家庭用品</option>
+                                <option value="Health & Beauty" {{ $item->category == 'Health & Beauty' ? 'selected' : '' }}>健康・美容</option>
+                                <option value="Electronics" {{ $item->category == 'Electronics' ? 'selected' : '' }}>電化製品</option>
+                                <option value="Entertainment" {{ $item->category == 'Entertainment' ? 'selected' : '' }}>その他</option>
+                            </select>
+                            @error('category')
+                                <span class="text-red-500 text-xs italic">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
                             <label for="quantity" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">数量</label>
                             <input type="number" name="quantity" id="quantity" value="{{ $item->quantity }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             @error('quantity')

@@ -15,6 +15,21 @@
                             <label for="name" class="block text-sm font-medium text-gray-700">アイテム名:</label>
                             <input type="text" name="name" id="name" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" required>
                         </div>
+                        <div class="mb-4">
+                            <label for="category" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">カテゴリー</label>
+                            <select name="category" id="category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <option value="Food">食べ物</option>
+                                <option value="Clothes">衣類</option>
+                                <option value="Household Items">家庭用品</option>
+                                <option value="Health & Beauty">健康・美容</option>
+                                <option value="Electronics">電化製品</option>
+                                <option value="Entertainment">その他</option>
+                            </select>
+                            @error('category')
+                                <span class="text-red-500 text-xs italic">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="form-group mb-4">
                             <label for="quantity" class="block text-sm font-medium text-gray-700">数量:</label>
                             <input type="number" name="quantity" id="quantity" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" value="1" required min="1">
